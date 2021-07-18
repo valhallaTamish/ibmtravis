@@ -1,0 +1,18 @@
+
+language: node_js
+
+services: 
+  - docker
+
+
+before_install: 
+    - chmod +x cluster_configuration.sh
+
+install:
+    - "./cluster_configuration.sh"  
+       
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: main
